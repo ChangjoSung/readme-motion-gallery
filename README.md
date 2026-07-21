@@ -2,17 +2,14 @@
 
 Generate compact, deterministic animated GIF galleries for GitHub profile and repository READMEs.
 
-README Motion Gallery turns local PNG or JPEG screenshots into a single optimized GIF. It supports grid and
-staggered layouts, left-to-right wipe transitions, cumulative reveals, scene replacement, fixed palettes, and
-an output size budget.
+README Motion Gallery turns local PNG or JPEG screenshots into a single optimized GIF.
 
 ## Demo
 
 ![Four screenshots appearing sequentially in a staggered layout](./docs/assets/readme-gallery-demo.gif)
 
 > [!IMPORTANT]
-> This project generates automatic animations. GitHub README images cannot provide a true pointer-position
-> hover gallery.
+> GitHub README images cannot provide a true pointer-position hover gallery.
 
 ## Quick start
 
