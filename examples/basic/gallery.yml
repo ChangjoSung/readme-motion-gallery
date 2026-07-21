@@ -1,0 +1,39 @@
+version: 1
+
+canvas:
+  width: 1280
+  height: 720
+  background: "#07080c"
+
+images:
+  - path: screenshots/1.png
+  - path: screenshots/2.png
+  - path: screenshots/3.png
+  - path: screenshots/4.png
+
+layout:
+  type: staggered
+  margin: 32
+  gap: 24
+  card_aspect_ratio: 1.777778
+  preserve_aspect_ratio: true
+  border_radius: 10
+  border_width: 2
+  border_color: "#745f4c"
+  shadow: true
+
+animation:
+  transition: wipe
+  reveal_mode: cumulative
+  transition_ms: 420
+  hold_ms: 800
+  initial_hold_ms: 450
+  final_hold_ms: 2300
+  frames_per_transition: 7
+  scan_line: true
+  loop: true
+
+output:
+  path: readme-gallery.gif
+  max_size_mb: 5
+  colors: 224

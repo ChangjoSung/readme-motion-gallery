@@ -1,0 +1,55 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "readme-motion-gallery"
+version = "0.1.0"
+description = "Generate compact animated GIF galleries for GitHub READMEs."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [
+  { name = "ChangjoSung" },
+]
+keywords = ["github", "readme", "gif", "gallery", "animation"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+]
+dependencies = [
+  "Pillow>=10,<13",
+  "PyYAML>=6,<7",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8,<10",
+  "ruff>=0.9,<1",
+]
+
+[project.scripts]
+rmg = "readme_motion_gallery.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/ChangjoSung/readme-motion-gallery"
+Issues = "https://github.com/ChangjoSung/readme-motion-gallery/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]

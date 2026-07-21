@@ -1,0 +1,27 @@
+name: "README Motion Gallery"
+description: "Generate a compact animated GIF gallery for a GitHub README"
+author: "ChangjoSung"
+
+inputs:
+  config:
+    description: "Path to the gallery YAML configuration"
+    required: false
+    default: "gallery.yml"
+  output:
+    description: "GIF output path (overrides output.path in the configuration)"
+    required: false
+    default: "assets/readme-gallery.gif"
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - "build"
+    - "--config"
+    - ${{ inputs.config }}
+    - "--output"
+    - ${{ inputs.output }}
+
+branding:
+  icon: "image"
+  color: "purple"
