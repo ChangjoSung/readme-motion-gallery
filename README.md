@@ -6,6 +6,10 @@ README Motion Gallery turns local PNG or JPEG screenshots into a single optimize
 staggered layouts, left-to-right wipe transitions, cumulative reveals, scene replacement, fixed palettes, and
 an output size budget.
 
+## Demo
+
+![Four screenshots appearing sequentially in a staggered layout](./docs/assets/readme-gallery-demo.gif)
+
 > [!IMPORTANT]
 > This project generates automatic animations. GitHub README images cannot provide a true pointer-position
 > hover gallery.
@@ -17,13 +21,13 @@ Requires Python 3.10 or newer.
 ```bash
 python -m pip install -e .
 python examples/basic/create_demo_images.py
-rmg build --config examples/basic/gallery.yml
+rmg build --config examples/basic/gallery.yml --output docs/assets/readme-gallery-demo.gif
 ```
 
 Then embed the generated file in a README:
 
 ```md
-![Project screenshots](./assets/readme-gallery.gif)
+![Project screenshots](./docs/assets/readme-gallery-demo.gif)
 ```
 
 ## Configuration
