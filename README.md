@@ -136,7 +136,7 @@ Pin a full release SHA instead of a floating tag in security-sensitive repositor
 ## Roadmap
 
 - More transitions and layouts
-- Browser-based configuration preview
+- Browser-based configuration preview ([MVP contract](docs/web-editor-contract-v1.md))
 - Optional GitHub-hosted configuration discovery
 - Hosted rendering API only after demand and abuse controls are validated
 
