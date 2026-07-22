@@ -1,0 +1,329 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ChangjoSung/readme-motion-gallery/raw/main/schema/gallery-config-v1.schema.json",
+  "title": "README Motion Gallery configuration version 1",
+  "description": "Portable validation contract shared by the Python renderer and web editor.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "images"],
+  "properties": {
+    "version": {
+      "const": 1,
+      "default": 1,
+      "x-rmg-editor": {
+        "classification": "included",
+        "control": "fixed",
+        "preview": "exact"
+      }
+    },
+    "canvas": {
+      "type": "object",
+      "default": {},
+      "additionalProperties": false,
+      "properties": {
+        "width": {
+          "type": "integer",
+          "minimum": 320,
+          "maximum": 1920,
+          "default": 1280,
+          "x-rmg-editor": {
+            "classification": "included",
+            "control": "number",
+            "preview": "exact"
+          }
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 180,
+          "maximum": 1080,
+          "default": 720,
+          "x-rmg-editor": {
+            "classification": "included",
+            "control": "number",
+            "preview": "exact"
+          }
+        },
+        "background": {
+          "type": "string",
+          "pattern": "^#[0-9A-Fa-f]{6}$",
+          "default": "#07080c",
+          "x-rmg-editor": {
+            "classification": "included",
+            "control": "color",
+            "preview": "exact"
+          }
+        }
+      }
+    },
+    "images": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 10,
+      "items": {
+        "oneOf": [
+          {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\.(?:[pP][nN][gG]|[jJ][pP][eE]?[gG])$"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["path"],
+            "properties": {
+              "path": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\.(?:[pP][nN][gG]|[jJ][pP][eE]?[gG])$"
+              }
+            }
+          }
+        ]
+      },
+      "x-rmg-editor": {
+        "classification": "included",
+        "control": "local-file-list",
+        "preview": "structural"
+      }
+    },
+    "layout": {
+      "type": "object",
+      "default": {},
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["grid", "staggered"],
+          "default": "staggered",
+          "x-rmg-editor": {
+            "classification": "included",
+            "control": "segmented",
+            "preview": "exact"
+          }
+        },
+        "margin": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 200,
+          "default": 32,
+          "x-rmg-editor": {
+            "classification": "included",
+            "control": "range-number",
+            "preview": "exact"
+          }
+        },
+        "gap": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 200,
+          "default": 24,
+          "x-rmg-editor": {
+            "classification": "included",
+            "control": "range-number",
+            "preview": "exact"
+          }
+        },
+        "card_aspect_ratio": {
+          "type": "number",
+          "minimum": 0.5,
+          "maximum": 3.0,
+          "default": 1.7777777777777777,
+          "x-rmg-editor": {
+            "classification": "included",
+            "control": "number",
+            "preview": "exact"
+          }
+        },
+        "preserve_aspect_ratio": {
+          "type": "boolean",
+          "default": true,
+          "x-rmg-editor": {
+            "classification": "included",
+            "control": "toggle",
+            "preview": "visual"
+          }
+        },
+        "border_radius": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 64,
+          "default": 10,
+          "x-rmg-editor": {
+            "classification": "included",
+            "control": "range-number",
+            "preview": "visual"
+          }
+        },
+        "border_width": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 12,
+          "default": 2,
+          "x-rmg-editor": {
+            "classification": "included",
+            "control": "range-number",
+            "preview": "visual"
+          }
+        },
+        "border_color": {
+          "type": "string",
+          "pattern": "^#[0-9A-Fa-f]{6}$",
+          "default": "#745f4c",
+          "x-rmg-editor": {
+            "classification": "included",
+            "control": "color",
+            "preview": "visual"
+          }
+        },
+        "shadow": {
+          "type": "boolean",
+          "default": true,
+          "x-rmg-editor": {
+            "classification": "included",
+            "control": "toggle",
+            "preview": "visual"
+          }
+        }
+      }
+    },
+    "animation": {
+      "type": "object",
+      "default": {},
+      "additionalProperties": false,
+      "properties": {
+        "transition": {
+          "const": "wipe",
+          "default": "wipe",
+          "x-rmg-editor": {
+            "classification": "included",
+            "control": "fixed",
+            "preview": "exact"
+          }
+        },
+        "reveal_mode": {
+          "type": "string",
+          "enum": ["cumulative", "replace"],
+          "default": "cumulative",
+          "x-rmg-editor": {
+            "classification": "included",
+            "control": "segmented",
+            "preview": "exact"
+          }
+        },
+        "transition_ms": {
+          "type": "integer",
+          "minimum": 100,
+          "maximum": 5000,
+          "default": 420,
+          "x-rmg-editor": {
+            "classification": "included",
+            "control": "range-number",
+            "preview": "exact"
+          }
+        },
+        "hold_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10000,
+          "default": 800,
+          "x-rmg-editor": {
+            "classification": "included",
+            "control": "range-number",
+            "preview": "exact"
+          }
+        },
+        "initial_hold_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10000,
+          "default": 450,
+          "x-rmg-editor": {
+            "classification": "included",
+            "control": "range-number",
+            "preview": "exact"
+          }
+        },
+        "final_hold_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 30000,
+          "default": 2300,
+          "x-rmg-editor": {
+            "classification": "included",
+            "control": "range-number",
+            "preview": "exact"
+          }
+        },
+        "frames_per_transition": {
+          "type": "integer",
+          "minimum": 2,
+          "maximum": 12,
+          "default": 7,
+          "x-rmg-editor": {
+            "classification": "included",
+            "control": "range-number",
+            "preview": "exact"
+          }
+        },
+        "scan_line": {
+          "type": "boolean",
+          "default": true,
+          "x-rmg-editor": {
+            "classification": "included",
+            "control": "toggle",
+            "preview": "visual"
+          }
+        },
+        "loop": {
+          "type": "boolean",
+          "default": true,
+          "x-rmg-editor": {
+            "classification": "included",
+            "control": "toggle",
+            "preview": "exact"
+          }
+        }
+      }
+    },
+    "output": {
+      "type": "object",
+      "default": {},
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\.[gG][iI][fF]$",
+          "default": "assets/readme-gallery.gif",
+          "x-rmg-editor": {
+            "classification": "included",
+            "control": "path",
+            "preview": "export-only"
+          }
+        },
+        "max_size_mb": {
+          "type": "number",
+          "minimum": 0.1,
+          "maximum": 25.0,
+          "default": 8.0,
+          "x-rmg-editor": {
+            "classification": "included",
+            "control": "number",
+            "preview": "export-only"
+          }
+        },
+        "colors": {
+          "type": "integer",
+          "minimum": 32,
+          "maximum": 256,
+          "default": 224,
+          "x-rmg-editor": {
+            "classification": "included",
+            "control": "range-number",
+            "preview": "export-only"
+          }
+        }
+      }
+    }
+  }
+}
