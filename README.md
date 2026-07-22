@@ -1,5 +1,7 @@
 # README Motion Gallery
 
+[English](README.md) | [한국어](README.ko.md)
+
 Generate compact, deterministic animated GIF galleries for GitHub profile and repository READMEs.
 
 README Motion Gallery turns local PNG or JPEG screenshots into a single optimized GIF.
