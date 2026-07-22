@@ -1,0 +1,72 @@
+name: 버그 신고
+description: 재현 가능한 문제를 알려 주세요. 한국어 또는 영어로 작성할 수 있습니다.
+title: "[버그] "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        제보해 주셔서 감사합니다. 보안 취약점은 공개 Issue에 작성하지 말고 SECURITY.md를 따라 주세요.
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: 문제 요약
+      description: 발생한 문제를 간결하게 설명해 주세요.
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: 사용 버전
+      description: "예시: v0.1.0 또는 커밋 SHA"
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: 재현 방법
+      description: 설정 파일과 실행 명령을 포함해 순서대로 작성해 주세요. 민감한 정보는 제거합니다.
+      placeholder: |
+        1. ...
+        2. ...
+        3. ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 예상 결과
+      description: 정상이라면 어떤 결과가 나와야 하는지 작성해 주세요.
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: 실제 결과 및 로그
+      description: 오류 메시지, 로그 또는 스크린샷을 첨부해 주세요.
+    validations:
+      required: true
+
+  - type: input
+    id: environment
+    attributes:
+      label: 실행 환경
+      description: 운영체제, Python 버전 및 실행 방식(CLI, Docker, GitHub Action)을 작성해 주세요.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: 확인 사항
+      options:
+        - label: 동일한 문제가 이미 등록되어 있는지 검색했습니다.
+          required: true
+        - label: 원본 이미지와 설정에서 민감한 정보를 제거했습니다.
+          required: true

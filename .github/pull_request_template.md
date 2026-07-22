@@ -1,29 +1,29 @@
-## Summary
+## 요약
 
-<!-- What changed and why? -->
+<!-- 무엇을 왜 변경했는지 작성해 주세요. 필요한 경우 영어로 작성해도 됩니다. -->
 
 Closes #
 
-## User-visible impact
+## 사용자 영향
 
-<!-- Describe the result users will notice. Use "None" for internal-only changes. -->
+<!-- 사용자가 확인할 수 있는 결과를 작성해 주세요. 내부 변경만 있다면 "없음"으로 작성합니다. -->
 
-## Validation
+## 검증
 
 - [ ] `ruff check .`
 - [ ] `pytest`
-- [ ] Docker Action build, when Action packaging changes
-- [ ] Web checks, when the web editor changes
-- [ ] Manual visual verification, when rendered output changes
+- [ ] Action 패키징 변경 시 Docker Action 빌드
+- [ ] 웹 편집기 변경 시 웹 검사
+- [ ] 렌더링 결과 변경 시 수동 시각 검증
 
-## GIF impact
+## GIF 영향
 
-<!-- Record dimensions, frame count, duration, palette colors, and file-size change when rendering changes. Use "Not applicable" otherwise. -->
+<!-- 렌더링 변경 시 크기, 프레임 수, 재생 시간, 팔레트 색상 수 및 파일 용량 변화를 기록합니다. 해당하지 않으면 "해당 없음"으로 작성합니다. -->
 
-## Checklist
+## 체크리스트
 
-- [ ] The target branch is `dev` (except release and hotfix pull requests).
-- [ ] Behavior changes include tests.
-- [ ] User-facing changes include documentation.
-- [ ] Generated files and unrelated local files are not included.
-- [ ] The change stays within the linked Issue and Milestone scope.
+- [ ] 대상 브랜치는 `dev`입니다. 단, 릴리스 및 hotfix PR은 예외입니다.
+- [ ] 동작 변경에 테스트가 포함되어 있습니다.
+- [ ] 사용자 대상 변경에 문서가 포함되어 있습니다.
+- [ ] 생성 파일과 관련 없는 로컬 파일이 포함되지 않았습니다.
+- [ ] 변경 범위가 연결된 Issue 및 Milestone 안에 있습니다.

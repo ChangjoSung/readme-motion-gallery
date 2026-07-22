@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 보안 취약점 신고
+    url: https://github.com/ChangjoSung/readme-motion-gallery/security/policy
+    about: 공개 Issue 대신 SECURITY.md의 비공개 신고 절차를 이용해 주세요.
