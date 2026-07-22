@@ -21,7 +21,7 @@ pnpm build
 ## Current boundary
 
 This app currently provides the responsive editor shell, every version 1 setting, local PNG/JPEG image
-management, schema validation, presets, and resource cleanup. Canvas animation preview, generated project code,
-starter bundles, CI, and deployment are delivered by the follow-up milestone issues.
+management, schema validation, presets, resource cleanup, and the renderer-compatible Canvas animation preview.
+Generated project code, starter bundles, web CI, and deployment are delivered by the follow-up milestone issues.
 
 Selected image bytes stay in memory in the active browser tab. The editor does not upload or persist them.

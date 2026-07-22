@@ -33,6 +33,8 @@ type EditorContextValue = {
   applyPreset: (preset: PresetName) => void;
   reset: () => void;
   setOutput: (output: OutputTab) => void;
+  setPlaying: (playing: boolean) => void;
+  setRevealedIndex: (index: number) => void;
 };
 
 const EditorContext = createContext<EditorContextValue | null>(null);
@@ -124,6 +126,14 @@ export function EditorProvider({ children }: PropsWithChildren) {
     dispatch({ type: "reset" });
   }, []);
 
+  const setPlaying = useCallback((playing: boolean) => {
+    dispatch({ type: "set-playing", playing });
+  }, []);
+
+  const setRevealedIndex = useCallback((index: number) => {
+    dispatch({ type: "set-revealed-index", index });
+  }, []);
+
   const validation = useMemo(() => validateConfig(state.config), [state.config]);
   const value = useMemo<EditorContextValue>(
     () => ({
@@ -138,8 +148,22 @@ export function EditorProvider({ children }: PropsWithChildren) {
       applyPreset: (preset) => dispatch({ type: "apply-preset", preset }),
       reset,
       setOutput: (output) => dispatch({ type: "set-output", output }),
+      setPlaying,
+      setRevealedIndex,
     }),
-    [addFiles, imageError, removeImage, reorderImage, replaceFile, reset, setConfig, state, validation],
+    [
+      addFiles,
+      imageError,
+      removeImage,
+      reorderImage,
+      replaceFile,
+      reset,
+      setConfig,
+      setPlaying,
+      setRevealedIndex,
+      state,
+      validation,
+    ],
   );
 
   return <EditorContext.Provider value={value}>{children}</EditorContext.Provider>;

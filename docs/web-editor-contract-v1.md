@@ -167,6 +167,17 @@ behavior; JavaScript `Math.round` is not a compatible substitute at half-pixel b
 - Photo resampling and GIF palette colors are informative in the browser and are not release-blocking parity
   checks. The generated GIF is the final authority.
 
+### Browser preview performance budget
+
+- Preview-only image sources are decoded once and cached until the local image is removed or replaced.
+- Sources larger than 2048 px on either edge are downsampled during `ImageBitmap` creation. Original file bytes
+  remain untouched and are still used by the Python renderer workflow.
+- The release-blocking deterministic budget is 1,000 combined ten-image layout and timeline calculations in
+  at most 250 ms in the Vitest environment.
+- Interactive Canvas rendering targets 16.7 ms median and 33.3 ms p95 per frame on a reference desktop.
+  Cross-browser measurements are recorded by the release smoke test in Issue #6; they do not change the
+  deterministic calculation gate above.
+
 Timing is defined as:
 
 ```text
